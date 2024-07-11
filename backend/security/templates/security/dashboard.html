@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Security Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Security Personnel Dashboard</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Company Name</th>
+                <th>NIN Number</th>
+                <th>Phone Number</th>
+                <th>Registration Code</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for personnel in security_personnel %}
+            <tr>
+                <td>{{ personnel.name }}</td>
+                <td>{{ personnel.company_name }}</td>
+                <td>{{ personnel.nin_number }}</td>
+                <td>{{ personnel.phone_number }}</td>
+                <td>{{ personnel.registration_code }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Access Code</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Generate Access Code</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="resident">Select Resident:</label>
+        <select id="resident" name="resident_id">
+            {% for resident in residents %}
+            <option value="{{ resident.id }}">{{ resident.name }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Generate Code</button>
+    </form>
+    {% if access_code %}
+    <p>Access Code: {{ access_code.code }}</p>
+    <p>Expires At: {{ access_code.expires_at }}</p>
+    {% endif %}
+</body>
+</html>

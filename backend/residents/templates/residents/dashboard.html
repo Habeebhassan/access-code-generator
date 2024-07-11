@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resident Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Resident Dashboard</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Landlord</th>
+                <th>Phone Number</th>
+                <th>Date Moved In</th>
+                <th>Rent Due Date</th>
+                <th>Estate Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for resident in residents %}
+            <tr>
+                <td>{{ resident.name }}</td>
+                <td>{{ resident.landlord.name }}</td>
+                <td>{{ resident.phone_number }}</td>
+                <td>{{ resident.date_moved_in }}</td>
+                <td>{{ resident.rent_due_date }}</td>
+                <td>{{ resident.estate_name }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
