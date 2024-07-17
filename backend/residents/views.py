@@ -1,10 +1,8 @@
 from django.contrib.auth import login, logout,  authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 
-
-from django.shortcuts import render
 from .models import Resident
 
 @login_required
@@ -18,6 +16,7 @@ def dashboard(request):
     Returns:
     - HttpResponse object rendering 'residents/dashboard.html' template with 'residents' context.
     """
+    print("Accessing dashboard view")
     residents = Resident.objects.all()
     """
     Querying all Resident objects from the database using the ORM (Object-Relational Mapper).
@@ -31,6 +30,17 @@ def dashboard(request):
     Rendering the 'residents/dashboard.html' template with context data:
     - 'residents': QuerySet containing all Resident objects fetched from the database.
     """
+def home(request):
+    """
+    View function for rendering the home page.
+
+    Parameters:
+    - request: HTTP request object passed automatically by Django.
+
+    Returns:
+    - HttpResponse object rendering the 'home.html' template.
+    """
+    return render(request, 'home.html')
 
 def register(request):
     """
@@ -67,6 +77,7 @@ def login_view(request):
     Returns:
     - HttpResponse object rendering 'residents/login.html' template with context data.
     """
+    print("Accessing login view")
     if request.method == 'POST':
         # If the form is submitted via POST method
         username = request.POST['username']
