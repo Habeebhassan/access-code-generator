@@ -16,20 +16,22 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from django.conf import settings
-from django.conf.urls.static import static
-#from residents.views import home
+from django.views.generic import TemplateView
 
 urlpatterns = [
     #path('', home, name='home'),
-    path('', include('residents.urls')),
     path('admin/', admin.site.urls),
     path('residents/', include('residents.urls')),
     path('security/', include('security.urls')),
     path('access/', include('access.urls')),
+    path('', TemplateView.as_view(template_name='index.html'), name='home'),
+    path('dashboard/', TemplateView.as_view(template_name='dashboard.html'), name='dashboard'),
+    #path('login/', TemplateView.as_view(template_name='login.html'), name='resident_login'),
+    path('register/', TemplateView.as_view(template_name='register.html'), name='register'),
 ]
 
 # Serve static and media files during development
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+# if settings.DEBUG:
+#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+#     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

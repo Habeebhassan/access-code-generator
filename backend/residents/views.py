@@ -42,7 +42,7 @@ def home(request):
     """
     return render(request, 'home.html')
 
-def register(request):
+def resident_signup(request):
     """
     View function for handling user registration.
 
@@ -65,9 +65,9 @@ def register(request):
     else:
         # If it's a GET request or any other method, create a new form instance
         form = UserCreationForm()
-    return render(request, 'residents/register.html', {'form': form})
+    return render(request, 'residents/signup.html', {'form': form})
 
-def login_view(request):
+def resident_login(request):
     """
     View function for handling user login.
 
@@ -92,7 +92,7 @@ def login_view(request):
     # Render the login form template for GET requests or if authentication fails
     return render(request, 'residents/login.html')
 
-def logout_view(request):
+def resident_logout(request):
     """
     View function for handling user logout.
 
@@ -103,4 +103,4 @@ def logout_view(request):
     - HttpResponseRedirect object redirecting to 'login' page.
     """
     logout(request)  # Logs out the user by clearing the session
-    return redirect('login')  # Redirects to the 'login' page after logout
+    return redirect('resident_login')  # Redirects to the 'login' page after logout

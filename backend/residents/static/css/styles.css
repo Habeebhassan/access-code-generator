@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.intro {
+    text-align: center;
+    padding: 50px 20px;
+    background: #f4f4f4;
+}
+
+.features {
+    padding: 50px 20px;
+    background: #fff;
+}
+
+.features h2 {
+    text-align: center;
+}
+
+.features .feature {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.features .feature img {
+    max-width: 100%;
+    height: auto;
+}
+
+.dashboard,
+.login,
+.register {
+    padding: 50px 20px;
+}
+
+.dashboard h2,
+.login h2,
+.register h2 {
+    text-align: center;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 10px;
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}

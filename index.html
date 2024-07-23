@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Code Generator</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/dashboard/">Dashboard</a></li>
+                <li><a href="/login/">Login</a></li>
+                <li><a href="/register/">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="intro" class="intro">
+        <img src="images/cover-image.jpg" alt="Cover Image">
+        <h1>Access Code Generator</h1>
+        <p>Securely manage and generate access codes with ease.</p>
+        <button onclick="window.location.href='/dashboard/';">Get Started</button>
+    </section>
+    
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>

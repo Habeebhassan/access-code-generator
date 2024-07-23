@@ -1,33 +1,21 @@
 {% load static %}
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Security Dashboard</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <h1>Security Personnel Dashboard</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Company Name</th>
-                <th>NIN Number</th>
-                <th>Phone Number</th>
-                <th>Registration Code</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for personnel in security_personnel %}
-            <tr>
-                <td>{{ personnel.name }}</td>
-                <td>{{ personnel.company_name }}</td>
-                <td>{{ personnel.nin_number }}</td>
-                <td>{{ personnel.phone_number }}</td>
-                <td>{{ personnel.registration_code }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/security/dashboard/">Dashboard</a></li>
+                <li><a href="/security/logout/">Logout</a></li> <!-- Added logout link -->
+            </ul>
+        </nav>
+    </header>
+    <h1>Security Dashboard</h1>
+    <!-- Content of the security dashboard -->
 </body>
 </html>

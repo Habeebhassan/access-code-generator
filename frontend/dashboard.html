@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/dashboard/">Dashboard</a></li>
+                <li><a href="/login/">Login</a></li>
+                <li><a href="/register/">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="dashboard" class="dashboard">
+        <h2>Dashboard</h2>
+        <table>
+            <tr>
+                <th>Resident Name</th>
+                <th>Phone Number</th>
+                <th>Estate Name</th>
+            </tr>
+            <!-- Example row, you should render these rows dynamically with JavaScript -->
+            <tr>
+                <td>Jane Doe</td>
+                <td>0987654321</td>
+                <td>Green Estate</td>
+            </tr>
+        </table>
+    </section>
+    
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>
