@@ -1,0 +1,7 @@
+{
+    "editor.inlineSuggest.suppressSuggestions": true,
+    "editor.quickSuggestions": {
+        "strings": "on"
+    },
+    "editor.inlineSuggest.enabled": true
+}

@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Security Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="{% url 'security_dashboard' %}">Dashboard</a></li>
+                <li><a href="{% url 'security_logout' %}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Security Personnel Dashboard</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Company Name</th>
+                    <th>Phone Number</th>
+                    <th>NIN Number</th>
+                    <th>Registration Code</th>
+                    <th>Passport Photo</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for security in security_personnel %}
+                <tr>
+                    <td>{{ security.name }}</td>
+                    <td>{{ security.company_name }}</td>
+                    <td>{{ security.phone_number }}</td>
+                    <td>{{ security.nin_number }}</td>
+                    <td><img src="{{ security.passport_photo.url }}" alt="Passport Photo" width="50"></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
+

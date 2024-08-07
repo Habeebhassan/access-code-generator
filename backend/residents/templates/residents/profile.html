@@ -1,0 +1,70 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resident Profile</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="{% url 'resident_logout' %}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Resident Profile</h1>
+    <div>
+        <p><strong>Name:</strong> {{ resident.name }}</p>
+        <p><strong>Email:</strong> {{ resident.email }}</p>
+        <p><strong>Phone Number:</strong> {{ resident.phone_number }}</p>
+        <p><strong>Date Moved In:</strong> {{ resident.date_moved_in }}</p>
+        <p><strong>Rent Due Date:</strong> {{ resident.rent_due_date }}</p>
+        <p><strong>Estate Name:</strong> {{ resident.estate_name }}</p>
+        <p><strong>Passport Photo:</strong></p>
+        {% if resident.passport_photo %}
+            <img src="{{ resident.passport_photo.url }}" alt="Passport Photo">
+        {% else %}
+            <p>No passport photo uploaded.</p>
+        {% endif %}
+    </div>
+</body>
+<script src="{% static 'frontend/js/scripts.js' %}"></script>
+</html>
+
+
+<!-- {% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resident Profile</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'resident_profile' %}">Profile</a></li>
+                <li><a href="/residents/logout/">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <h1>Resident Profile</h1>
+    
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ resident_profile.as_p }}
+        <button type="submit">Update Profile</button>
+    </form>
+    
+    <footer>
+        <p>&copy; 2024 Access Code Generator</p>
+    </footer>
+</body>
+</html> -->

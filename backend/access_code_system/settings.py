@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
     'corsheaders',
     'rest_framework',
 
@@ -70,7 +71,8 @@ REST_FRAMEWORK = {
 
 ROOT_URLCONF = 'access_code_system.urls'
 
-LOGIN_URL = 'residents/login/'
+LOGIN_URL = 'resident_login/'
+LOGIN_REDIRECT_URL = 'resident_profile'
 
 TEMPLATES = [
     {
@@ -124,6 +126,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = [
+    #'security.backends.EmailBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+# custom model definition name
+AUTH_USER_MODEL = 'residents.Resident'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
@@ -142,8 +151,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-MEDIA_URL = '/images/'
-MEDIA_ROOT = '/frontend/images/'
+MEDIA_URL = os.path.join(BASE_DIR, 'media/')
+MEDIA_ROOT = 'media/'
 
 STATIC_URL = 'static/'
 STATIC_ROOT = 'frontend'

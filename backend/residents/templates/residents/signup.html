@@ -1,26 +1,29 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Resident Registration</title>
-    <link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}">
+    <title>Resident Sign Up</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
     <header>
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="/residents/login/">Security Signup</a></li>
+                <li><a href="/residents/login/">Login</a></li>
             </ul>
         </nav>
     </header>
-    <h1>Resident Signup</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Signup</button>
-    </form>
+
+    <main>
+        <h1>Resident Sign Up</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ resident_form.as_p }}
+            <button type="submit">Sign Up</button>
+        </form>
+    </main>
 </body>
-<script src="{% static '/js/scripts.js' %}"></script>
 </html>

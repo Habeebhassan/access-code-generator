@@ -6,6 +6,7 @@ urlpatterns = [
     path('login/', views.security_login, name='security_login'),
     path('dashboard/', views.dashboard, name='security_dashboard'),
     path('logout/', views.security_logout, name='security_logout'),
+    path('profile/', views.security_profile, name='security_profile'),
     # Defines a URL pattern using path() function:
     # - 'dashboard/': The URL path to match. When accessed via browser, it will be '/<your_base_url>/dashboard/'.
     # - views.dashboard: The view function that handles this URL pattern, imported from the views module.

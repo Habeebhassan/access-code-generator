@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Security Profile</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/security/logout/">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Security Profile</h1>
+    <div class="profile">
+        <p><strong>Name:</strong> {{ security_personnel.name }}</p>
+        <p><strong>Email:</strong> {{ security_personnel.email }}</p>
+        <p><strong>Company Name:</strong> {{ security_personnel.company_name }}</p>
+        <p><strong>Phone Number:</strong> {{ security_personnel.phone_number }}</p>
+        <p><strong>NIN Number:</strong> {{ security_personnel.nin_number }}</p>
+        <img src="{{ security_personnel.passport_photo.url }}" alt="Passport Photo">
+    </div>
+</body>
+</html>

@@ -4,6 +4,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Security Personnel Sign Up</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="{% url 'security_login' %}">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Security Personnel Sign Up</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ security_form.as_p }}
+            <button type="submit">Sign Up</button>
+        </form>
+    </main>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <title>Security Signup</title>
 </head>
 <body>
@@ -22,4 +50,4 @@
         <button type="submit">Signup</button>
     </form>
 </body>
-</html>
+</html> -->

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Resident Login</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'frontend/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
     <header>
@@ -16,9 +16,18 @@
         </nav>
     </header>
     <h1>Resident Login</h1>
-    <form method="POST">
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <form method="POST" action="{% url 'resident_login' %}">
         {% csrf_token %}
-        <input type="text" name="username" placeholder="Username" required>
+        <label for="email">Email:</label>
+        <input type="email" name="email" placeholder="Email" required>
+        <label for="password">Password:</label>
         <input type="password" name="password" placeholder="Password" required>
         <button type="submit">Login</button>
     </form>

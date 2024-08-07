@@ -1,0 +1,21 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile Not Found</title>
+</head>
+<body>
+    <!-- templates/navbar.html -->
+<nav>
+    <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'resident_login' %}">Login</a></li>
+        <li><a href="{% url 'resident_signup' %}">Signup</a></li>
+    </ul>
+</nav>
+    <h1>Profile Not Found</h1>
+    <p>The profile for the logged-in user does not exist.</p>
+</body>
+</html>

@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import include, path
 from django.conf import settings
 from django.views.generic import TemplateView
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     #path('', home, name='home'),
@@ -25,10 +27,10 @@ urlpatterns = [
     path('security/', include('security.urls')),
     path('access/', include('access.urls')),
     path('', TemplateView.as_view(template_name='index.html'), name='home'),
-    path('dashboard/', TemplateView.as_view(template_name='dashboard.html'), name='dashboard'),
+    #path('dashboard/', TemplateView.as_view(template_name='dashboard.html'), name='dashboard'),
     #path('login/', TemplateView.as_view(template_name='login.html'), name='resident_login'),
-    path('register/', TemplateView.as_view(template_name='register.html'), name='register'),
-]
+    #path('register/', TemplateView.as_view(template_name='register.html'), name='register'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # Serve static and media files during development
 # if settings.DEBUG:
